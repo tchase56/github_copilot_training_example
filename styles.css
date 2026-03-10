@@ -1,0 +1,280 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f5f7fb;
+  color: #1b1f24;
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.25rem;
+}
+
+h1 {
+  margin: 0 0 1rem;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(300px, 380px) 1fr;
+  gap: 1rem;
+}
+
+.panel,
+.track-wrap {
+  background: #fff;
+  border: 1px solid #dce3ef;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.panel h2,
+.panel h3 {
+  margin-top: 0;
+}
+
+.lane-config-list {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 0.8rem;
+}
+
+.lane-config {
+  border: 1px solid #dce3ef;
+  border-radius: 8px;
+  padding: 0.6rem;
+}
+
+.lane-config-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.icon-options {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.icon-options label {
+  border: 1px solid #dce3ef;
+  border-radius: 8px;
+  padding: 0.25rem 0.45rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #fafbff;
+  cursor: pointer;
+}
+
+.icon {
+  font-size: 1.1rem;
+}
+
+.bug-name-input {
+  width: 100%;
+  margin-top: 0.45rem;
+  padding: 0.45rem 0.5rem;
+  border: 1px solid #b7c2d6;
+  border-radius: 6px;
+}
+
+.speed-group {
+  border: 1px solid #dce3ef;
+  border-radius: 8px;
+  padding: 0.6rem;
+  display: flex;
+  gap: 0.8rem;
+  margin: 0 0 0.8rem;
+}
+
+#start-btn {
+  width: 100%;
+  border: 0;
+  border-radius: 8px;
+  padding: 0.65rem 0.8rem;
+  background: #2563eb;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#start-btn:disabled {
+  background: #9bb2e8;
+  cursor: not-allowed;
+}
+
+.messages {
+  min-height: 4.8rem;
+  margin-top: 0.8rem;
+}
+
+.warning,
+.error,
+.result {
+  margin: 0.25rem 0;
+  font-size: 0.92rem;
+}
+
+.warning {
+  color: #8a5a00;
+}
+
+.error {
+  color: #ba1a1a;
+  font-weight: 600;
+}
+
+.result {
+  color: #1b5e20;
+}
+
+.metrics h4 {
+  margin: 0.6rem 0 0.4rem;
+  font-size: 0.95rem;
+}
+
+.bug-stats-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.3rem;
+  font-size: 0.86rem;
+}
+
+.bug-stats-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  border: 1px solid #dce3ef;
+  border-radius: 6px;
+  padding: 0.3rem 0.45rem;
+}
+
+.bug-stats-name {
+  font-weight: 600;
+}
+
+.track-header,
+.track-lane {
+  display: grid;
+  grid-template-columns: 70px 70px 1fr;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.track-header {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 0.45rem;
+  color: #34435e;
+}
+
+.track {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.track-lane {
+  border: 1px solid #dce3ef;
+  border-radius: 8px;
+  padding: 0.55rem;
+  min-height: 70px;
+  background: linear-gradient(to right, #fff 0%, #f6f9ff 100%);
+  position: relative;
+}
+
+.track-lane::after {
+  content: "";
+  position: absolute;
+  right: 8px;
+  top: 6px;
+  bottom: 6px;
+  width: 4px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #d61f1f 0,
+    #d61f1f 6px,
+    #ffffff 6px,
+    #ffffff 12px
+  );
+}
+
+.lane-label {
+  font-weight: 600;
+}
+
+.bug-runway {
+  position: relative;
+  height: 48px;
+  overflow: hidden;
+}
+
+.bug-runner {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 600;
+  user-select: none;
+}
+
+.bug-runner .icon {
+  font-size: 1.6rem;
+}
+
+.bug-name {
+  font-size: 0.86rem;
+  color: #2e3a4f;
+}
+
+.bug-runner.bonus-winner .icon {
+  animation: winner-bounce 650ms ease-out 2;
+}
+
+.bug-runner.bonus-loser {
+  animation: loser-flip 900ms ease-in forwards;
+  transform-origin: center;
+}
+
+@keyframes winner-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-14px);
+  }
+  70% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes loser-flip {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+@media (max-width: 980px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}

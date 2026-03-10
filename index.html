@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bug Race</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <h1>Bug Race</h1>
+
+      <section class="layout">
+        <aside class="panel" aria-label="Game controls">
+          <h2>Race Setup</h2>
+          <div id="lane-config-list" class="lane-config-list"></div>
+
+          <fieldset class="speed-group">
+            <legend>Speed</legend>
+            <label><input type="radio" name="speed" value="slow" /> Slow</label>
+            <label><input type="radio" name="speed" value="normal" checked /> Normal</label>
+            <label><input type="radio" name="speed" value="fast" /> Fast</label>
+          </fieldset>
+
+          <button id="start-btn" type="button">Start</button>
+
+          <div class="messages">
+            <p id="warning-text" class="warning" role="status" aria-live="polite"></p>
+            <p id="error-text" class="error" role="alert" aria-live="assertive"></p>
+            <p id="result-text" class="result" role="status" aria-live="polite"></p>
+          </div>
+
+          <section class="metrics" aria-label="Session metrics">
+            <h3>Metrics</h3>
+            <p>Races run: <strong id="races-run">0</strong></p>
+            <h4>Bug Stats</h4>
+            <ul id="bug-stats-list" class="bug-stats-list"></ul>
+          </section>
+        </aside>
+
+        <section class="track-wrap" aria-label="Race track">
+          <div class="track-header">
+            <span>Predict</span>
+            <span>Lane</span>
+            <span>Bug</span>
+          </div>
+          <div id="track" class="track"></div>
+        </section>
+      </section>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

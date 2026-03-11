@@ -1,4 +1,4 @@
-# Bug Race 🐛
+# Bug Race 2 🐛
 
 A browser-based bug racing game where players configure four lanes of bugs, predict the winner, and watch them race to the finish line.
 
